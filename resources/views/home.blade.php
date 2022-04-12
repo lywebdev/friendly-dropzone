@@ -59,7 +59,8 @@
 <body>
 
 <div id="app">
-    <form action="">
+    <form action="{{ route('uploadImages') }}" method="post">
+        @csrf
         <label for="name">Название поста</label>
         <input type="text" name="name" id="name" placeholder="Введите название поста">
 
@@ -72,10 +73,14 @@
 
         </div>
         <input type="file" name="files[]" multiple="multiple" id="files" style="display: none;">
+        <input type="text" class="filesValue" name="dataFiles">
         <br>
         <div class="images-container">
 
         </div>
+
+
+        <button type="submit">Отправить на сервер</button>
     </form>
 </div>
 

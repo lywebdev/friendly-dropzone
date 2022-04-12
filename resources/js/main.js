@@ -17,6 +17,7 @@ $(document).ready(() => {
 
             $imagesContainer.append(template);
         }
+        $('.filesValue').val(JSON.stringify(files));
 
         let removeBtn = $('.images-container__item__remove');
         removeBtn.unbind('click');
@@ -35,24 +36,24 @@ $(document).ready(() => {
         $('#files').trigger('click');
     });
 
-    $('.btn-send-in-server').click(() => {
-        $.ajax({
-            url: "/upload-images",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            type: 'post',
-            data: {
-                dataFiles: files
-            },
-            success: (response) => {
-                console.log(response);
-            },
-            error: (e) => {
-                console.log(e);
-            }
-        });
-    });
+    // $('.btn-send-in-server').click(() => {
+    //     $.ajax({
+    //         url: "/upload-images",
+    //         headers: {
+    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //         },
+    //         type: 'post',
+    //         data: {
+    //             dataFiles: files
+    //         },
+    //         success: (response) => {
+    //             console.log(response);
+    //         },
+    //         error: (e) => {
+    //             console.log(e);
+    //         }
+    //     });
+    // });
 
 
     $('.btn-remove-all').click(() => {
